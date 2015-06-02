@@ -40,6 +40,7 @@
 // The first inclusion file MUST always be declared and MUST be first in the list
 #include "stdafx.h"  // Defines IDE required external definition files
 #include "QuickSort.h"   // Class Definition file
+#include "AbstractSort.h"
 
 // Namespaces utilized in this program
 using namespace std; // Announces to the compiler that members of the namespace "std"
@@ -54,12 +55,7 @@ QuickSort::QuickSort()
 {
 }
 
-void sort(int arr[], int size)
-{
-
-}
-
-void sort(int arr[], int size) 
+void AbstractSort::sort(int arr[], int size) 
 {
 	int left = 0;
 	int right = size - 1;
@@ -68,12 +64,16 @@ void sort(int arr[], int size)
 	int pivot = arr[(left + right) / 2];
 
 	/* partition */
-	while (i <= j) {
+	while (i <= j) 
+	{
 		while (arr[i] < pivot)
 			i++;
 		while (arr[j] > pivot)
 			j--;
-		if (i <= j) {
+
+		this->compare;
+		if (i <= j) 
+		{
 			tmp = arr[i];
 			arr[i] = arr[j];
 			arr[j] = tmp;

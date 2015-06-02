@@ -55,7 +55,7 @@
 #include "stdafx.h"  // Defines IDE required external definition files
 #include <iostream>  // Defines objects and classes used for stream I/O
 // Class Definition header file(s)
-#include "Class.h"
+#include "AbstractSort.h"
 
 // Namespaces utilized in this program
 using namespace std; // Announces to the compiler that members of the namespace "std"

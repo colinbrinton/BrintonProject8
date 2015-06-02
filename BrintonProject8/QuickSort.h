@@ -70,7 +70,7 @@ public:
 	~QuickSort();
 
 	// 3. Mutator Methods
-
+	void compare();
 	// 4. Observer Methods
 
 	// 5. Overloaded Operators

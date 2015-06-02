@@ -57,17 +57,21 @@ SelectionSort::SelectionSort()
 
 
 
-void sort(int arr[], int size)
+void AbstractSort::sort(int arr[], int size)
 {
 	int i, j, minIndex, tmp;
 	for (i = 0; i < size - 1; i++) 
 	{
 		minIndex = i;
 		for (j = i + 1; j < size; j++)
-		if (arr[j] < arr[minIndex])
 		{
-			minIndex = j;
+			this->compare;
+			if (arr[j] < arr[minIndex])
+			{
+				minIndex = j;
+			}
 		}
+
 		if (minIndex != i) 
 		{
 			tmp = arr[i];

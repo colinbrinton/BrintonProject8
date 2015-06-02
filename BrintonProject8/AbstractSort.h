@@ -50,14 +50,13 @@
 */
 // External Definition Files
 
-
+#include "SelectionSort.h"
 
 class AbstractSort
 {
 protected:
 	// 1. Non-static (instance) Variable Declarations
-	int size;
-	int arr[] = {};
+
 	int comparisons = 0;
 
 	// 2. Static Constant Value Declarations
@@ -77,14 +76,14 @@ public:
 
 	virtual void sort(int arr[], int size) = 0;
 
-	void compare()
+	void AbstractSort::compare()
 	{
 		comparisons += 1;
 	}
 	
-	void getCompare()
+	int AbstractSort::getCompare()
 	{
-
+		return comparisons;
 	}
 
 	
