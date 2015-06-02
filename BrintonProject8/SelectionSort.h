@@ -50,8 +50,7 @@
 
 #include "AbstractSort.h"
 
-class SelectionSort :
-	public AbstractSort
+class SelectionSort : public AbstractSort
 {
 	private:
 		// 1. Non-static (instance) Variable Declarations

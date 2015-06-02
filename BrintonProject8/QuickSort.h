@@ -4,7 +4,7 @@
 *       Class: **Class Name**       (Ex: Car)
 *  Base Class: ** None **  Supply Base Class name if inheritance applies
 *
-* This file defines the members of the class: AbstractSort
+* This file defines the members of the class: ***Class Name***
 * These members include class variable data members, class constant, static
 * data members, and class method declarations only and/or class method
 * declarations and definitions.
@@ -50,44 +50,26 @@
 */
 // External Definition Files
 
+#include "AbstractSort.h"
 
-
-class AbstractSort
+class QuickSort : public AbstractSort
 {
-protected:
+private:
 	// 1. Non-static (instance) Variable Declarations
-	int size;
-	int arr[] = {};
-	int comparisons = 0;
 
 	// 2. Static Constant Value Declarations
 
 public:
 	// 1. Constructors
 	//    A. Default Constructor
-	AbstractSort();
+	QuickSort();
 	//    B. Initializing Constructors
-	AbstractSort::AbstractSort(int arr[], int size);
 	//    C. Conversion Constructors
 
 	// 2. Class Destructor
-	~AbstractSort();
+	~QuickSort();
 
 	// 3. Mutator Methods
-
-	virtual void sort(int arr[], int size) = 0;
-
-	void compare()
-	{
-		comparisons += 1;
-	}
-	
-	void getCompare()
-	{
-
-	}
-
-	
 
 	// 4. Observer Methods
 

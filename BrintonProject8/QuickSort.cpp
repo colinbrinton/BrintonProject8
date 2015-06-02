@@ -39,8 +39,7 @@
 // External Definition files
 // The first inclusion file MUST always be declared and MUST be first in the list
 #include "stdafx.h"  // Defines IDE required external definition files
-#include "AbstractSort.h"   // Class Definition file
-#include "SelectionSort.h"
+#include "QuickSort.h"   // Class Definition file
 
 // Namespaces utilized in this program
 using namespace std; // Announces to the compiler that members of the namespace "std"
@@ -51,34 +50,46 @@ using namespace std; // Announces to the compiler that members of the namespace 
 
 
 // Class Default Constructor
-SelectionSort::SelectionSort()
+QuickSort::QuickSort()
 {
 }
-
-
 
 void sort(int arr[], int size)
 {
-	int i, j, minIndex, tmp;
-	for (i = 0; i < size - 1; i++) 
-	{
-		minIndex = i;
-		for (j = i + 1; j < size; j++)
-		if (arr[j] < arr[minIndex])
-		{
-			minIndex = j;
-		}
-		if (minIndex != i) 
-		{
+
+}
+
+void sort(int arr[], int size) 
+{
+	int left = 0;
+	int right = size - 1;
+	int i = left, j = right;
+	int tmp;
+	int pivot = arr[(left + right) / 2];
+
+	/* partition */
+	while (i <= j) {
+		while (arr[i] < pivot)
+			i++;
+		while (arr[j] > pivot)
+			j--;
+		if (i <= j) {
 			tmp = arr[i];
-			arr[i] = arr[minIndex];
-			arr[minIndex] = tmp;
+			arr[i] = arr[j];
+			arr[j] = tmp;
+			i++;
+			j--;
 		}
-	}
+	};
+
+	/* recursion */
+	if (left < j)
+		sort(arr, size + 1);
+	if (i < right)
+		sort(arr, size + 1);
 }
 
 // Class Destructor
-SelectionSort::~SelectionSort()
+QuickSort::~QuickSort()
 {
 }
-
