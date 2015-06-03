@@ -51,6 +51,7 @@
 // External Definition Files
 
 #include "SelectionSort.h"
+#include "QuickSort.h"
 
 class AbstractSort
 {

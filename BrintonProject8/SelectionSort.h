@@ -68,7 +68,7 @@ class SelectionSort : public AbstractSort
 		~SelectionSort();
 
 		// 3. Mutator Methods
-
+		void sort(int arr[], int size);
 		// 4. Observer Methods
 
 		// 5. Overloaded Operators

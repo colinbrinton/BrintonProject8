@@ -101,11 +101,38 @@ using namespace std; // Announces to the compiler that members of the namespace 
 */
 int main()
 {
+
+
 	// Constant "const" Value Declarations
 	const int NO_ERRORS = 0;
+	const int SIZE = 20;
+
+	int testArr[SIZE];
+
+	cout << "This is the test client program to test two concrete methods" << endl
+		 << "inherited from a pure virtual method." << endl << endl;
+
+	cout << "This program will create an array containing 20 elements." << endl
+		 << "Each element will be filled with a random number between" << endl
+		 << "1 - 100." << endl << endl;
+
+	cout << "Generating test array..." << endl << endl;
+
+	for (int i = 0; i < 20; i++)
+	{
+		testArr[i] = rand() % 100 + 1;
+
+		cout << testArr[i] << endl;
+	}
+
+	cout << endl;
+	cout << "Using selection sort to sort the array..." << endl << endl;
+
+	SelectionSort test(int testArr[], ); //Left off here
 
 
-	// !! Insert your code here (remove this comment line) !!
+
+
 
 // Examples of declaring class objects (remove these five lines)
 //	Class* object1 = new Class();  // Object created in the Heap Memory
