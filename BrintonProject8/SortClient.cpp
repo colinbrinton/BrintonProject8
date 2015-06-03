@@ -3,50 +3,54 @@
  *           Term: Spring 2015
  *     Instructor: Robert Main
  *
- * Solution/Project Name: **Solution/Project Name**  (Ex: Project1)
- *             File Name: **ThisFileName**.cpp       (Ex: payrate.cpp)
+ * Solution/Project Name: BrintonProject8
+ *             File Name: SortClient.cpp 
  *
  * This file defines the entry point method, main(), for a C++ Console
  * application. When the executable file is selected for execution, the OS
  * will transfer execution to the first line of code in method main(). Other
  * methods called from main() may be defined here as well.
  *
- * Programmer: **Your Name**
+ * Programmer: Colin Brinton
  *
- * Assigned Project Number: **See Syllabus, for example: 2A**
+ * Assigned Project Number: 8
  *
  *
  * Revision     Date                        Release Comment
  * --------  ----------  ------------------------------------------------------
- *   1.0     MM/DD/YYYY  Initial Release
- *   X.Y     MM/DD/YYYY  ** Short, 1 line description of changes to program  **
+ *   1.0     06/02/2015  Initial Release
  *
  *
  * UDTs (Classes) Used
  *       Name                          Description
  * ----------------  ----------------------------------------------------------
- *
+ *  SelectionSort		Derived from AbstractSort, sorts an array using a selection
+ *							sort and keeps track of comparisons made.
+ *	QuickSort			Derived from AbstractSort, sorts an array using quicksort and 
+ *							keeps track of comparisons made.
  *
  * Program Inputs
  * --------------
  *  Device                              Description
  * --------  ------------------------------------------------------------------
- * Keyboard  ** Describe any inputs from the User; otherwise, None **
+ * Keyboard  User hits enter when they wish  to exit the program.
  *
  *
  * Program Outputs
  * ---------------
  *  Device                            Description
  * --------  ------------------------------------------------------------------
- * Monitor   ** Describe any Console display; otherwise, None **
- *
+ * Monitor   Description of client program, displays array as it is generated, 
+ *				displays the copy array as it is generated. Displays the sorted
+ *				array using selection sort. Displays the number of comparisons.
+ *				Displays the sorted copy array and number of comparisons using
+ *				quicksort. Promt to exit the program.
  *
  * File Methods
  * ------------
  *     Name                             Description
  * ------------  --------------------------------------------------------------
  * main          Program entry point method
- * **** Add name and description of any other methods defined in this file ****
  *
  ******************************************************************************
  */
@@ -54,8 +58,11 @@
 // The first inclusion file MUST always be declared and MUST be first in the list
 #include "stdafx.h"  // Defines IDE required external definition files
 #include <iostream>  // Defines objects and classes used for stream I/O
+#include <time.h>
 // Class Definition header file(s)
 #include "AbstractSort.h"
+#include "SelectionSort.h"
+#include "QuickSort.h"
 
 // Namespaces utilized in this program
 using namespace std; // Announces to the compiler that members of the namespace "std"
@@ -66,16 +73,19 @@ using namespace std; // Announces to the compiler that members of the namespace 
 *
 * Method Description
 * ------------------
-* ** For method main(), describe the application program from the client's
-* ** perspective, which includes any User inputs required and expected
-* ** Console output, and any other pertinent information about the program.
-* ** For other Class methods, describe the functionality of the method.
-* ** This WILL take several lines for a satisfactory description!
+* This program is the test client program used to demonstrate the functionality of
+* the two classes inherited from AbstractSort, SelectionSort and QuickSort. The
+* program opens with a description of its functionality. It then generates and displays
+* a test array and a copy of the test array. The program then creates a SelectionSort
+* object and calls the SelectionSort "sort" method, passing the generated array. 
+* The sorted array and the number of comparisons are displayed (using getComparisons). 
+* The previous two steps are repeated for the copy array using QuickSort. The user is then
+* prompted to exit.
 *
 *
 * Pre-Conditions
 * --------------
-* ** Describe any assumptions made by the method; otherwise specify: None **
+* None
 *
 *
 * Method Arguments
@@ -94,8 +104,14 @@ using namespace std; // Announces to the compiler that members of the namespace 
 *
 * Invoked Methods
 * ---------------
-*     Name                             Description
-* ------------  --------------------------------------------------------------
+*     Name														   Description
+* ------------							 --------------------------------------------------------------
+* SelectionSort::sort(int[], int)		Sorts the array it is passed using a selection sort, keeps track
+*											of the number of comparisons it makes. (Always 190 for an array
+*											of 20 elements)
+* QuickSort::sort(int[], int)			Sorts the array it is passed using quicksort, keeps track
+*											of the number of comparisons it makes.
+* getComparisons();						Returns the number of comparisons made by the sort.
 *
 *******************************************************************************
 */
@@ -108,13 +124,16 @@ int main()
 	const int SIZE = 20;
 
 	int testArr[SIZE];
+	int testArr2[SIZE];
+
+	srand(time(NULL));
 
 	cout << "This is the test client program to test two concrete methods" << endl
 		 << "inherited from a pure virtual method." << endl << endl;
 
 	cout << "This program will create an array containing 20 elements." << endl
 		 << "Each element will be filled with a random number between" << endl
-		 << "1 - 100." << endl << endl;
+		 << "1 - 100." << endl << endl << endl;
 
 	cout << "Generating test array..." << endl << endl;
 
@@ -122,24 +141,51 @@ int main()
 	{
 		testArr[i] = rand() % 100 + 1;
 
-		cout << testArr[i] << endl;
+		cout << testArr[i] << " ";
 	}
 
-	cout << endl;
+	cout << endl << endl;
+	cout << "Making a copy of the test array..." << endl << endl;
+
+	for (int i = 0; i < 20; i++)
+	{
+		testArr2[i] = testArr[i];
+
+		cout << testArr2[i] << " ";
+	}
+
+	cout << endl << endl << endl;
+	cout << "TEST ONE:" << endl;
 	cout << "Using selection sort to sort the array..." << endl << endl;
 
-	SelectionSort test(int testArr[], ); //Left off here
+	SelectionSort test;
 
+	test.sort(testArr, SIZE);
 
+	for (int i = 0; i < 20; i++)
+	{
 
+		cout << testArr[i] << " ";
+	}
 
+	cout << endl << endl << "Number of comparisons: " << test.getCompare() << endl << endl;
 
-// Examples of declaring class objects (remove these five lines)
-//	Class* object1 = new Class();  // Object created in the Heap Memory
-//	Class object2 = Class();       // Object created in Stack Memory
-//
-//	delete object1;  // Releases object/array memory allocated in Heap Memory!!
+	cout << endl;
 
+	cout << "TEST TWO:" << endl;
+	cout << "Using Quicksort to sort the copy array..." << endl << endl;
+
+	QuickSort test2;
+
+	test2.sort(testArr2, SIZE);
+
+	for (int i = 0; i < 20; i++)
+	{
+
+		cout << testArr[i] << " ";
+	}
+
+	cout << endl << endl << "Number of comparisons: " << test2.getCompare() << endl;
 
 	// This prevents the Visual Studio Console Window from closing during
 	// debug mode and allows you to select and copy the results displayed in

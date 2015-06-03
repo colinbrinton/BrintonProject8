@@ -1,29 +1,35 @@
 	/******************************************************************************
-	*       Class: **Class Name**       (Ex: Car)
-	*  Base Class: ** None **  Supply Base Class name if inheritance applies
+	*       Class: SelectionSort
+	*  Base Class: AbstractSort
 	*
-	* This file defines the members of the class: ***Class Name***
+	* This file defines the members of the class: SelectionSort
 	* These members include class variable data members, class constant, static
 	* data members, and class method declarations only and/or class method
 	* declarations and definitions.
 	*
-	* Programmer: **Your Name**
+	* Programmer: Colin Brinton
 	*
 	* Revision     Date                        Release Comment
 	* --------  ----------  -------------------------------------------------------
-	*   1.0     MM/DD/YYYY  Initial Release
-	*   X.Y     MM/DD/YYYY  ** Short, 1 line description of changes to program  **
+	*   1.0     06/02/2015  Initial Release
 	*
 	* Class Description
 	* -----------------
-	* ** Describe the class defined here, including it's purpose  **
-	* ** This may take several lines to describe                  **
+	* This class has a verson of the sort() method that uses a selection sort. It keeps
+	* track of the number of comparisons made in the sort using a base class method
+	* compare().
 	*
 	*
 	* ----------------------------- Public Interface ------------------------------
-	*      Method                               Description
-	* ----------------  -----------------------------------------------------------
-	*
+	*      Method														 Description
+	* ----------------								-----------------------------------------------------------
+	* SelectionSort()								Default constructor
+	* virtual void sort(int arr[], int size)		Sorts the array it is passed using a selection sort. Keeps 
+	*													track of the number of comparisons it has made during the
+	*													sort by incrementing it's base class data member 
+	*													"comparisons".
+	* ~SelectionSort();								Class detructor
+	* 
 	*
 	* ------------------------------ Private Methods ------------------------------
 	*       Name                               Description
@@ -35,7 +41,7 @@
 	*               Data
 	*    Type       Type       Name                    Description
 	* ---------- --------- ------------ -------------------------------------------
-	* ***Type: static, non-static***
+	*						  *** No private data members ***
 	*
 	*
 	* ------------------  Public "static const" Data Members ----------------------
@@ -47,38 +53,21 @@
 	*******************************************************************************
 	*/
 	// External Definition Files
-
+#include "stdafx.h"
 #include "AbstractSort.h"
 
 class SelectionSort : public AbstractSort
 {
-	private:
-		// 1. Non-static (instance) Variable Declarations
-
-		// 2. Static Constant Value Declarations
-
 	public:
-		// 1. Constructors
-		//    A. Default Constructor
+
+		//1. Default Constructor
 		SelectionSort();
-		//    B. Initializing Constructors
-		//    C. Conversion Constructors
 
 		// 2. Class Destructor
 		~SelectionSort();
 
 		// 3. Mutator Methods
-		void sort(int arr[], int size);
-		// 4. Observer Methods
-
-		// 5. Overloaded Operators
-
-		// 6. Type Conversion Operators
-
-		// 7. Granted "friend" Method Declarations
-
-		// 8. Public "static const" Value Declarations
-
+		virtual void sort(int arr[], int size);
 	};
 
 

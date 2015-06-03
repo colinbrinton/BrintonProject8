@@ -49,37 +49,19 @@
 *******************************************************************************
 */
 // External Definition Files
-
+#include "stdafx.h"
 #include "AbstractSort.h"
 
 class QuickSort : public AbstractSort
 {
-private:
-	// 1. Non-static (instance) Variable Declarations
-
-	// 2. Static Constant Value Declarations
-
 public:
-	// 1. Constructors
-	//    A. Default Constructor
+	// 1. Default Constructor
 	QuickSort();
-	//    B. Initializing Constructors
-	//    C. Conversion Constructors
 
 	// 2. Class Destructor
 	~QuickSort();
 
 	// 3. Mutator Methods
-	void compare();
-	// 4. Observer Methods
-
-	// 5. Overloaded Operators
-
-	// 6. Type Conversion Operators
-
-	// 7. Granted "friend" Method Declarations
-
-	// 8. Public "static const" Value Declarations
-
+	virtual void sort(int arr[], int size);
 };
 

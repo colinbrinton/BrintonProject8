@@ -1,25 +1,27 @@
 /******************************************************************************
-*       Class: **Class Name**       (Ex: Car)
-*  Base Class: ** None **  Supply Base Class name if inheritance applies
+*       Class: QuickSort
+*  Base Class: AbstractSort
 *
 *
 * This file defines the static, const data members, if any, and the class
-* methods not defined in the class definition file, ***ClassName***.h
+* methods not defined in the class definition file, QuickSort.h
 *
-* Programmer: **Your Name**
+* Programmer: Colin Brinton
 *
 * Revision     Date                        Release Comment
 * --------  ----------  ------------------------------------------------------
-*   1.0     MM/DD/YYYY  Initial Release
-*   X.Y     MM/DD/YYYY  ** Short, 1 line description of changes to program  **
+*   1.0     06/02/2015  Initial Release
 *
 *
 * ----------------------------- Public Interface -----------------------------
 *      Method                               Description
-* ----------------  ----------------------------------------------------------
-* Class()           Default Constructor
-* ~Class()          Class Destructor
-*  ***Enter the remaining Class methods here***
+* ----------------				----------------------------------------------------------
+* Class()							 Default Constructor
+* ~Class()							 Class Destructor
+* void sort(int arr[], int size)	 Sorts the array it is passed using quicksort. Keeps 
+*										track of the number of comparisons it has made during the
+*										sort by incrementing it's base class data member 
+*										"comparisons".
 *
 *
 * ------------------------------ Private Methods -----------------------------
@@ -29,10 +31,11 @@
 *
 *
 *
-* ------------------------- Data Member Initializations ----------------------
+** ------------------------- Data Member Initializations ----------------------
 *               Data
 *    Type       Type         Name                   Description
 * ----------  --------  --------------  --------------------------------------
+*  const 		int			OFFSET		The offset needed to adjust to array index
 *
 ******************************************************************************
 */
@@ -40,7 +43,6 @@
 // The first inclusion file MUST always be declared and MUST be first in the list
 #include "stdafx.h"  // Defines IDE required external definition files
 #include "QuickSort.h"   // Class Definition file
-#include "AbstractSort.h"
 
 // Namespaces utilized in this program
 using namespace std; // Announces to the compiler that members of the namespace "std"
@@ -49,21 +51,23 @@ using namespace std; // Announces to the compiler that members of the namespace 
 
 // Class Constant Value Initializations
 
+const int OFFSET = 1;
 
 // Class Default Constructor
 QuickSort::QuickSort()
 {
 }
 
-void AbstractSort::sort(int arr[], int size) 
+void QuickSort::sort(int arr[], int size) 
 {
-	int left = 0;
-	int right = size - 1;
+	// The code for a standart quicksort
+	int left = NULL;
+	int right = size - OFFSET;
 	int i = left, j = right;
 	int tmp;
 	int pivot = arr[(left + right) / 2];
 
-	/* partition */
+	// Pivot partition
 	while (i <= j) 
 	{
 		while (arr[i] < pivot)
@@ -71,7 +75,9 @@ void AbstractSort::sort(int arr[], int size)
 		while (arr[j] > pivot)
 			j--;
 
-		this->compare;
+		// Base class compare method is called directly
+		// before the comparson is made.
+		compare();
 		if (i <= j) 
 		{
 			tmp = arr[i];
@@ -82,11 +88,11 @@ void AbstractSort::sort(int arr[], int size)
 		}
 	};
 
-	/* recursion */
+	// Recursion
 	if (left < j)
-		sort(arr, size + 1);
+		sort(arr, left);
 	if (i < right)
-		sort(arr, size + 1);
+		sort(arr, right);
 }
 
 // Class Destructor

@@ -1,17 +1,16 @@
 /******************************************************************************
-*       Class: **Class Name**       (Ex: Car)
+*       Class: AbstractSort
 *  Base Class: ** None **  Supply Base Class name if inheritance applies
 *
 *
 * This file defines the static, const data members, if any, and the class
 * methods not defined in the class definition file, ***ClassName***.h
 *
-* Programmer: **Your Name**
+* Programmer: Colin Brinton
 *
 * Revision     Date                        Release Comment
 * --------  ----------  ------------------------------------------------------
-*   1.0     MM/DD/YYYY  Initial Release
-*   X.Y     MM/DD/YYYY  ** Short, 1 line description of changes to program  **
+*   1.0     06/02/2015  Initial Release
 *
 *
 * ----------------------------- Public Interface -----------------------------

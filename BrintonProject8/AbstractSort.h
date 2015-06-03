@@ -49,9 +49,10 @@
 *******************************************************************************
 */
 // External Definition Files
-
-#include "SelectionSort.h"
-#include "QuickSort.h"
+#include "stdafx.h"
+//#include "SelectionSort.h"
+//#include "QuickSort.h"
+using namespace std;
 
 class AbstractSort
 {
