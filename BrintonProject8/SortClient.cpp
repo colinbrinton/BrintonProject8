@@ -121,13 +121,18 @@ int main()
 
 	// Constant "const" Value Declarations
 	const int NO_ERRORS = 0;
+
+	// Test array size
 	const int SIZE = 20;
 
+	// Two arrays to be used with sorting methods
 	int testArr[SIZE];
 	int testArr2[SIZE];
 
+	// Use the system clock as a random seed
 	srand(time(NULL));
 
+	// Program Description
 	cout << "This is the test client program to test two concrete methods" << endl
 		 << "inherited from a pure virtual method." << endl << endl;
 

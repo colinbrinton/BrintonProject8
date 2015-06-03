@@ -1,31 +1,36 @@
 #pragma once
 
 /******************************************************************************
-*       Class: **Class Name**       (Ex: Car)
-*  Base Class: ** None **  Supply Base Class name if inheritance applies
+*       Class: QuickSort
+*  Base Class: AbstractSort
 *
-* This file defines the members of the class: ***Class Name***
+* This file defines the members of the class: QuickSort
 * These members include class variable data members, class constant, static
 * data members, and class method declarations only and/or class method
 * declarations and definitions.
 *
-* Programmer: **Your Name**
+* Programmer: Colin Brinton
 *
 * Revision     Date                        Release Comment
 * --------  ----------  -------------------------------------------------------
-*   1.0     MM/DD/YYYY  Initial Release
-*   X.Y     MM/DD/YYYY  ** Short, 1 line description of changes to program  **
+*   1.0     06/02/2015 Initial Release
 *
 * Class Description
 * -----------------
-* ** Describe the class defined here, including it's purpose  **
-* ** This may take several lines to describe                  **
+* This class has a verson of the sort() method that uses quicksort. It keeps
+*	 track of the number of comparisons made in the sort using a base class method
+*	 compare().
 *
 *
 * ----------------------------- Public Interface ------------------------------
-*      Method                               Description
-* ----------------  -----------------------------------------------------------
-*
+*      Method														    Description
+* ----------------								-----------------------------------------------------------
+* QuickSort()									Default constructor
+* virtual void sort(int arr[], int size)		Sorts the array it is passed using quicksort. Keeps 
+*													track of the number of comparisons it has made during the
+*													sort by incrementing it's base class data member 
+*													"comparisons".
+* ~QuickSort()									Class destructor
 *
 * ------------------------------ Private Methods ------------------------------
 *       Name                               Description
@@ -37,7 +42,7 @@
 *               Data
 *    Type       Type       Name                    Description
 * ---------- --------- ------------ -------------------------------------------
-* ***Type: static, non-static***
+*						 *** No private data members ***
 *
 *
 * ------------------  Public "static const" Data Members ----------------------

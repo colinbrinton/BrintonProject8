@@ -1,30 +1,33 @@
 #pragma once
 
 /******************************************************************************
-*       Class: **Class Name**       (Ex: Car)
-*  Base Class: ** None **  Supply Base Class name if inheritance applies
+*       Class: AbstractSort
+*  Base Class: ** None **
 *
 * This file defines the members of the class: AbstractSort
 * These members include class variable data members, class constant, static
 * data members, and class method declarations only and/or class method
 * declarations and definitions.
 *
-* Programmer: **Your Name**
+* Programmer: Colin Brinton
 *
 * Revision     Date                        Release Comment
 * --------  ----------  -------------------------------------------------------
-*   1.0     MM/DD/YYYY  Initial Release
-*   X.Y     MM/DD/YYYY  ** Short, 1 line description of changes to program  **
+*   1.0     06/02/2015  Initial Release
 *
 * Class Description
 * -----------------
-* ** Describe the class defined here, including it's purpose  **
-* ** This may take several lines to describe                  **
+* The base class from which SelectionSort and QuickSort are derived. Contains a
+* pure virtual function to be defined in the inherited classes. Contains public
+* member functions compare() and getCompare(). To increment the protected data
+* member "comparisons," and to return the number of comparisons, respectively.
 *
 *
 * ----------------------------- Public Interface ------------------------------
 *      Method                               Description
 * ----------------  -----------------------------------------------------------
+* void compare()	Increments "comparisons" by one each time it is called
+* int getCompare()	RETurns "comparisons"
 *
 *
 * ------------------------------ Private Methods ------------------------------
@@ -37,7 +40,7 @@
 *               Data
 *    Type       Type       Name                    Description
 * ---------- --------- ------------ -------------------------------------------
-* ***Type: static, non-static***
+*						*** No private data members ***
 *
 *
 * ------------------  Public "static const" Data Members ----------------------
@@ -61,44 +64,28 @@ protected:
 
 	int comparisons = 0;
 
-	// 2. Static Constant Value Declarations
-
 public:
-	// 1. Constructors
-	//    A. Default Constructor
+	// 1. Default Constructor
 	AbstractSort();
-	//    B. Initializing Constructors
-	AbstractSort::AbstractSort(int arr[], int size);
-	//    C. Conversion Constructors
 
 	// 2. Class Destructor
 	~AbstractSort();
 
 	// 3. Mutator Methods
 
-	virtual void sort(int arr[], int size) = 0;
+	virtual void sort(int arr[], int size) = 0; // Pure virtual method
 
+	// Inline method used to increment comparisons each time it is called
 	void AbstractSort::compare()
 	{
 		comparisons += 1;
 	}
-	
+
+	// Inline method that RETurns comparisons when called
 	int AbstractSort::getCompare()
 	{
 		return comparisons;
 	}
-
-	
-
-	// 4. Observer Methods
-
-	// 5. Overloaded Operators
-
-	// 6. Type Conversion Operators
-
-	// 7. Granted "friend" Method Declarations
-
-	// 8. Public "static const" Value Declarations
 
 };
 
