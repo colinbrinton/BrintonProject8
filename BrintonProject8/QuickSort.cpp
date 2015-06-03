@@ -18,9 +18,9 @@
 * ----------------				----------------------------------------------------------
 * Class()							 Default Constructor
 * ~Class()							 Class Destructor
-* void sort(int arr[], int size)	 Sorts the array it is passed using quicksort. Keeps 
+* void sort(int arr[], int size)	 Sorts the array it is passed using quicksort. Keeps
 *										track of the number of comparisons it has made during the
-*										sort by incrementing it's base class data member 
+*										sort by incrementing it's base class data member
 *										"comparisons".
 *
 *
@@ -58,9 +58,9 @@ QuickSort::QuickSort()
 {
 }
 
-void QuickSort::sort(int arr[], int size) 
+void QuickSort::sort(int arr[], int size)
 {
-	// The code for a standart quicksort
+	// The code for a standard quicksort
 	int left = NULL;
 	int right = size - OFFSET;
 	int i = left, j = right;
@@ -68,7 +68,7 @@ void QuickSort::sort(int arr[], int size)
 	int pivot = arr[(left + right) / 2];
 
 	// Pivot partition
-	while (i <= j) 
+	while (i <= j)
 	{
 		while (arr[i] < pivot)
 			i++;
@@ -76,9 +76,9 @@ void QuickSort::sort(int arr[], int size)
 			j--;
 
 		// Base class compare method is called directly
-		// before the comparson is made.
+		// before the comparison is made.
 		compare();
-		if (i <= j) 
+		if (i <= j)
 		{
 			tmp = arr[i];
 			arr[i] = arr[j];
@@ -99,3 +99,4 @@ void QuickSort::sort(int arr[], int size)
 QuickSort::~QuickSort()
 {
 }
+

@@ -17,7 +17,7 @@
 *
 * Class Description
 * -----------------
-* This class has a verson of the sort() method that uses quicksort. It keeps
+* This class has a version of the sort() method that uses quicksort. It keeps
 *	 track of the number of comparisons made in the sort using a base class method
 *	 compare().
 *
@@ -26,9 +26,9 @@
 *      Method														    Description
 * ----------------								-----------------------------------------------------------
 * QuickSort()									Default constructor
-* virtual void sort(int arr[], int size)		Sorts the array it is passed using quicksort. Keeps 
+* virtual void sort(int arr[], int size)		Sorts the array it is passed using quicksort. Keeps
 *													track of the number of comparisons it has made during the
-*													sort by incrementing it's base class data member 
+*													sort by incrementing it's base class data member
 *													"comparisons".
 * ~QuickSort()									Class destructor
 *
@@ -69,4 +69,5 @@ public:
 	// 3. Mutator Methods
 	virtual void sort(int arr[], int size);
 };
+
 

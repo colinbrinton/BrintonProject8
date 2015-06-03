@@ -18,9 +18,9 @@
 * ----------------			----------------------------------------------------------
 * Class()						 Default Constructor
 * ~Class()						 Class Destructor
-* sort(int arr[], int size)		 Sorts the array it is passed using a selection sort. Keeps 
+* sort(int arr[], int size)		 Sorts the array it is passed using a selection sort. Keeps
 *									track of the number of comparisons it has made during the
-*									sort by incrementing it's base class data member 
+*									sort by incrementing it's base class data member
 *									"comparisons".
 *
 *
@@ -65,13 +65,13 @@ void SelectionSort::sort(int arr[], int size)
 
 	// The code for a standard selection sort
 	int i, j, minIndex, tmp;
-	for (i = NULL; i < size - OFFSET; i++) 
+	for (i = NULL; i < size - OFFSET; i++)
 	{
 		minIndex = i;
 		for (j = i + OFFSET; j < size; j++)
 		{
 			// Base class compare method is called directly
-			// before the comparson is made.
+			// before the comparison is made.
 			compare();
 			if (arr[j] < arr[minIndex])
 			{
@@ -79,7 +79,7 @@ void SelectionSort::sort(int arr[], int size)
 			}
 		}
 
-		if (minIndex != i) 
+		if (minIndex != i)
 		{
 			tmp = arr[i];
 			arr[i] = arr[minIndex];
@@ -92,4 +92,5 @@ void SelectionSort::sort(int arr[], int size)
 SelectionSort::~SelectionSort()
 {
 }
+
 
